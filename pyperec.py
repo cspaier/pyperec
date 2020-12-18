@@ -2,8 +2,8 @@ from igraph import *
 import unidecode
 import plotly.plotly as py
 from plotly.graph_objs import *
-
-
+from plotly import tools
+#import chart_studio
 NUMBER_LETTER = 5
 
 
@@ -14,7 +14,7 @@ def read_dictionary_file(file):
     for word in f:
         word = word.strip('\n')
         if len(word) == NUMBER_LETTER:
-            words_list.append(unicode(word.ascii_lowercase))
+            words_list.append(word)
     return words_list
 
 
@@ -30,7 +30,7 @@ def build_graph(words_list):
             for new_letter in alphabet:
                 new_word = word[:index] + new_letter + word[index + 1:]
                 if new_word in words_list and new_word != word:
-                    print(word + "<->" + new_word)
+                    #print(word + "<->" + new_word)
                     g.add_edges([(word, new_word)])
     return g
 
@@ -88,7 +88,7 @@ def export_to_iplot(G):
 
     width=800
     height=800
-    layout=Layout(title= "pyperec test 2",
+    my_layout=Layout(title= "pyperec test 3",
         font= dict(size=12),
         showlegend=False,
         autosize=False,
@@ -106,7 +106,7 @@ def export_to_iplot(G):
         annotations=[
                dict(
                showarrow=False,
-                text='From a 2401 list of 5 letters french words. Proper nouns not removed.',
+                text='From a 8318 list of 5 letters french words. Proper nouns removed.',
                 xref='paper',
                 yref='paper',
                 x=0,
@@ -121,13 +121,14 @@ def export_to_iplot(G):
         )
 
     data=[trace1, trace2]
-    fig=Figure(data=data, layout=layout)
-
-    py.iplot(fig, filename='Pyperec-test-2')
+    fig=Figure(data=data, layout=my_layout)
+    py.iplot(fig, filename='Pyperec-test-3')
 
 
 # Exemples
-# words_list = read_dictionary_file("french/liste_french.txt")
+# words_list = read_dictionary_file("french/liste_french.2.txt")
 # g = build_graph(words_list)
 # g.write_pickle("graph.pickle")
 # g = load("graph.pickle")
+# #show_graph(g)
+# export_to_iplot(g)

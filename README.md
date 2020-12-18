@@ -21,6 +21,6 @@ Appart from answering those questions, the idea is to offer an interective graph
 
 The code is inside the `pyperec.py` file.
 
-So far we are using a very naive algorythme in `build_graph` using the [igraph python library](https://igraph.org/python/). Exmples are provided in the `french` directory with a 22000 french words containing 2401 5-letters words. This graph is saved in dot, graphml and pickle. You can view an interactive rendering of this exemple clicking the above picture.
+So far we are using a very naive algorythme in `build_graph` using the [igraph python library](https://igraph.org/python/). Exmples are provided in the `french` directory with 8318 5-letters words. This graph is saved in dot, graphml and pickle. You can view an interactive rendering of this exemple clicking the above picture.
 
-[![grpah_png](https://github.com/cspaier/pyperec/raw/master/french/Pyperec-test-2.png)]( https://plot.ly/~cspaier/4/pyperec-test-2/)
+[![grpah_png](https://github.com/cspaier/pyperec/raw/master/french/Pyperec-test-3.png)](https://plotly.com/~cspaier/35/pyperec-test-3/)
